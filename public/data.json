@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch using HTML, CSS, React, and Node.js.",
+    "image": "https://placehold.co/600x400/2563eb/ffffff?text=Web+Development",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "UI/UX Design Masterclass",
+    "instructor": "Sarah Smith",
+    "duration": "15 hours",
+    "rating": 4.9,
+    "level": "Intermediate",
+    "description": "Master Figma and learn how to design intuitive user interfaces and user experiences.",
+    "image": "https://placehold.co/600x400/ec4899/ffffff?text=UI/UX+Design",
+    "category": "Design"
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Fundamentals",
+    "instructor": "Michael Johnson",
+    "duration": "12 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Grow your business online using SEO, social media marketing, and email campaigns.",
+    "image": "https://placehold.co/600x400/10b981/ffffff?text=Digital+Marketing",
+    "category": "Marketing"
+  },
+  {
+    "id": 4,
+    "title": "Advanced Next.js & Tailwind CSS",
+    "instructor": "Rafiul Goni Rayhan",
+    "duration": "18 hours",
+    "rating": 5.0,
+    "level": "Advanced",
+    "description": "Build fast, SEO-friendly, and highly scalable full-stack applications with Next.js App Router.",
+    "image": "https://placehold.co/600x400/8b5cf6/ffffff?text=Next.js+Pro",
+    "category": "Development"
+  },
+  {
+    "id": 5,
+    "title": "Graphic Design with Adobe Illustrator",
+    "instructor": "Emily Chen",
+    "duration": "14 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Learn vector illustration, logo design, and branding using Adobe Illustrator.",
+    "image": "https://placehold.co/600x400/f59e0b/ffffff?text=Graphic+Design",
+    "category": "Design"
+  },
+  {
+    "id": 6,
+    "title": "Python for Data Science",
+    "instructor": "David Miller",
+    "duration": "25 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Analyze data, create stunning visualizations, and learn machine learning basics with Python.",
+    "image": "https://placehold.co/600x400/3b82f6/ffffff?text=Data+Science",
+    "category": "Data Science"
+  }
+]
