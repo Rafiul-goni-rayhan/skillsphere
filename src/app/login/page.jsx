@@ -29,6 +29,17 @@ export default function LoginPage() {
     setLoading(false);
   };
 
+
+  const handleGoogleLogin = async () => {
+  await authClient.signIn.social({
+    provider: "google",
+    callbackURL: "/",
+  });
+};
+
+
+
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 px-4">
       <Card className="max-w-md w-full p-10 rounded-2xl shadow-2xl border border-gray-100 backdrop-blur-md bg-white/80">
@@ -73,7 +84,26 @@ export default function LoginPage() {
           >
             Login
           </Button>
+{/* Divider */}
+<div className="flex items-center gap-2 text-gray-400 text-sm">
+  <div className="flex-1 h-px bg-gray-200"></div>
+  OR
+  <div className="flex-1 h-px bg-gray-200"></div>
+</div>
 
+{/* Google Login Button */}
+<Button
+  onClick={handleGoogleLogin}
+  variant="bordered"
+  className="w-full flex items-center justify-center gap-2 font-semibold rounded-xl hover:bg-gray-50 transition"
+>
+  <img
+    src="https://www.svgrepo.com/show/475656/google-color.svg"
+    alt="google"
+    className="w-5 h-5"
+  />
+  Continue with Google
+</Button>
           <p className="text-center text-gray-500 text-sm mt-4">
             New here?{" "}
             <Link
