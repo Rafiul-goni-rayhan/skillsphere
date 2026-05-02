@@ -8,7 +8,6 @@ const Notfound = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-100 text-center px-4">
 
-      {/* Animated 404 */}
       <motion.h1
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -18,7 +17,6 @@ const Notfound = () => {
         404
       </motion.h1>
 
-      {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -28,7 +26,6 @@ const Notfound = () => {
         Oops! Page Not Found 😕
       </motion.h2>
 
-      {/* Description */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -39,7 +36,6 @@ const Notfound = () => {
         had its name changed, or is temporarily unavailable.
       </motion.p>
 
-      {/* Button */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -57,7 +53,6 @@ const Notfound = () => {
         </Link>
       </motion.div>
 
-      {/* Optional decoration */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.2 }}
