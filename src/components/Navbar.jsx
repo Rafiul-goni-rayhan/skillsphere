@@ -89,20 +89,32 @@ const Navbar = () => {
               />
 
             
-              <span className="hidden sm:block text-sm font-semibold text-gray-700">
-                {session.user.name}
-              </span>
+              <div className="flex items-center gap-3">
 
-            
-              <Button
-                onClick={handleLogout}
-                size="sm"
-                color="danger"
-                variant="flat"
-                className="rounded-lg font-semibold"
-              >
-                Logout
-              </Button>
+  {/* User Name */}
+  <span className="hidden sm:block text-sm font-semibold text-gray-700 
+    bg-gradient-to-r from-blue-50 to-indigo-50 
+    px-4 py-1.5 rounded-full border border-blue-100
+    shadow-sm transition-all duration-300 
+    hover:shadow-md hover:-translate-y-0.5 hover:text-blue-600 cursor-default">
+    
+    👋 {session.user.name.split(" ")[0]}
+  </span>
+
+  {/* Logout Button */}
+  <Button
+    onClick={handleLogout}
+    size="sm"
+    className="rounded-full px-4 font-semibold 
+    bg-red-50 text-red-600 border border-red-200
+    hover:bg-red-100 hover:text-red-700 
+    hover:shadow-md hover:-translate-y-0.5
+    active:scale-90 transition-all duration-200"
+  >
+    Logout
+  </Button>
+
+</div>
             </motion.div>
           ) : (
             <div className="flex items-center gap-2">
