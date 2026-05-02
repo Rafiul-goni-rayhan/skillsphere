@@ -17,7 +17,7 @@ export default function AllCoursesPage() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Modal
+  // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
@@ -45,116 +45,125 @@ export default function AllCoursesPage() {
   };
 
   const filteredCourses = courses.filter((course) =>
-    course.title.toLowerCase().includes(searchQuery.toLowerCase()),
+    course.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[60vh]">
-        <Spinner size="lg" color="primary" />
+      <div className="flex justify-center items-center min-h-[70vh]">
+       <Spinner size="lg" label="Loading Courses..." color="primary" />
       </div>
     );
   }
 
   return (
-    <section className="py-10 max-w-7xl mx-auto px-6 min-h-screen relative">
-      <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">All Courses</h1>
-        <p className="text-gray-500 mb-8">
-          Explore our wide range of skill-based programs.
-        </p>
+    <section className="py-16 bg-gradient-to-b from-slate-50 to-white min-h-screen relative overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-primary/5 blur-[120px] rounded-full -z-10" />
 
-        {/* CUSTOM SEARCH BAR */}
-        <div className="max-w-md mx-auto relative group">
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <FaSearch className="text-gray-400 group-focus-within:text-primary transition-colors" />
-          </div>
-          <input
-            type="text"
-            placeholder="Search courses by title..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-12 py-3 bg-white border-2 border-gray-200 rounded-xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-gray-700 font-medium shadow-sm"
-          />
-          {/* Clear Button (isClearable এর বিকল্প) */}
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <FaTimes />
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Course List Section */}
-      {filteredCourses.length === 0 ? (
-        <div className="text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
-          <h3 className="text-2xl font-bold text-gray-600">
-            No courses found!
-          </h3>
-          <p className="text-gray-400 mt-2">
-            Try searching with a different keyword.
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+            Explore All <span className="text-primary">Courses</span>
+          </h1>
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+            search your favourite course 
           </p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {filteredCourses.map((course) => (
-            <Card
-              key={course.id}
-              className="border border-gray-200 shadow-sm flex flex-col h-full overflow-hidden hover:shadow-md transition-shadow"
-            >
-              <div className="w-full relative h-48 bg-gray-100">
-                <Image
-                  src={course.image}
-                  alt={course.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
 
-              <div className="flex flex-col items-start p-5 gap-3 bg-white flex-grow">
-                <div className="flex justify-between w-full items-center">
-                  <Chip
-                    size="sm"
-                    color="primary"
-                    variant="flat"
-                    className="font-semibold"
-                  >
-                    {course.category}
-                  </Chip>
-                  <span className="flex items-center gap-1 font-bold text-warning text-sm">
-                    <FaStar /> {course.rating}
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold line-clamp-2 text-gray-800 leading-snug">
-                  {course.title}
-                </h3>
-                <div className="flex justify-between w-full text-sm text-gray-500 mt-auto pt-4 border-t border-gray-50">
-                  <span className="flex items-center gap-1">
-                    <FaChalkboardTeacher className="text-primary" />{" "}
-                    {course.instructor}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <FaClock className="text-purple-500" /> {course.duration}
-                  </span>
+          {/* MODERN SEARCH BAR */}
+          <div className="max-w-xl mx-auto mt-10 relative group">
+            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+              <FaSearch className="text-slate-400 group-focus-within:text-primary transition-colors duration-300" />
+            </div>
+            <input
+              type="text"
+              placeholder="Search for courses, skills, or topics..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-12 py-4 bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-slate-700 shadow-xl shadow-slate-200/50"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute inset-y-0 right-0 pr-5 flex items-center text-slate-400 hover:text-danger transition-colors"
+              >
+                <FaTimes />
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Course List Section */}
+        {filteredCourses.length === 0 ? (
+          <div className="text-center py-24 bg-white rounded-3xl border-2 border-dashed border-slate-200">
+            <div className="bg-slate-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+               <FaSearch className="text-3xl text-slate-300" />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-700">No courses found!</h3>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredCourses.map((course) => (
+              <Card
+                key={course.id}
+                className="group border-none bg-white shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full rounded-[2rem] overflow-hidden"
+              >
+                {/* Image Section */}
+                <div className="w-full relative h-56 overflow-hidden">
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute top-4 left-4 z-10">
+                    <Chip
+                      size="sm"
+                      className="bg-white/90 backdrop-blur-md text-primary font-bold shadow-lg"
+                    >
+                      {course.category}
+                    </Chip>
+                  </div>
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="flex items-center gap-1 bg-warning/90 backdrop-blur-md text-white px-2 py-1 rounded-lg text-xs font-bold shadow-lg">
+                      <FaStar /> {course.rating}
+                    </div>
+                  </div>
                 </div>
 
-               
-                <Button
-                  onClick={() => handleViewDetails(course)}
-                  variant="bordered"
-                  className="w-full mt-4 font-bold border-2 border-purple-300 bg-lime-50 text-purple-700 rounded-full hover:bg-purple-500 hover:text-white hover:border-purple-500 transition-all duration-300 shadow-sm active:scale-95"
-                >
-                  View Details
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
-      )}
+                {/* Content Section */}
+                <div className="flex flex-col p-6 flex-grow">
+                  <h3 className="text-xl font-bold text-slate-800 line-clamp-2 leading-tight mb-4 group-hover:text-primary transition-colors">
+                    {course.title}
+                  </h3>
+                  
+                  <div className="flex flex-col gap-3 mt-auto">
+                    <div className="flex justify-between items-center text-sm text-slate-500">
+                      <span className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                          <FaChalkboardTeacher className="text-primary text-xs" />
+                        </div>
+                        {course.instructor}
+                      </span>
+                      <span className="flex items-center gap-1.5 font-medium">
+                        <FaClock className="text-slate-400" /> {course.duration}
+                      </span>
+                    </div>
+
+                    <Button
+                      onClick={() => handleViewDetails(course)}
+                      className="w-full mt-4 font-bold bg-slate-900 text-white rounded-xl hover:bg-primary py-6 transition-all duration-300 shadow-lg shadow-slate-200"
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Modal Component */}
       <CourseModal

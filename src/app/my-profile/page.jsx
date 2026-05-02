@@ -2,6 +2,8 @@ import { auth } from "@/lib/auth"; //
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Card, Avatar, Button } from "@heroui/react";
+import EditProfileModal from "@/components/EditProfileModal";
+
 
 export default async function MyProfilePage() {
   const session = await auth.api.getSession({
@@ -21,10 +23,10 @@ export default async function MyProfilePage() {
       <Card className="p-8 border border-gray-100 shadow-xl bg-white rounded-3xl">
         <div className="flex flex-col md:flex-row items-center gap-8">
           
-          <Avatar 
+          <img 
             src={user.image} 
-            name={user.name}
-            className="w-32 h-32 text-4xl font-bold bg-gradient-to-tr from-blue-500 to-purple-500 text-white shadow-lg"
+            alt={user.name}
+            className="w-32 h-32 rounded-full object-cover shadow-lg"
           />
 
           <div className="flex-grow space-y-4 text-center md:text-left">
@@ -38,15 +40,12 @@ export default async function MyProfilePage() {
               <p className="text-lg text-gray-700 font-medium">{user.email}</p>
             </div>
 
-            <div className="my-4 border-t border-gray-100 w-full"></div>
 
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-              <Button color="primary" variant="shadow" className="font-bold rounded-xl px-8">
-                Edit Profile
-              </Button>
-              <Button variant="bordered" className="font-bold rounded-xl border-gray-200">
-                Settings
-              </Button>
+            <div className="flex flex-wrap font-bold gap-3 justify-center md:justify-start ">
+             
+             <button className="flex border-3 rounded-3xl text-center border-gray-100 p-4 bg-blue-100"> <EditProfileModal user={user} /></button>
+              
+              
             </div>
           </div>
         </div>

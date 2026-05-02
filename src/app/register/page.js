@@ -1,25 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import { Card, Button, Spinner } from "@heroui/react";
+import { Card, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaLock, FaImage } from "react-icons/fa"; // FaImage অ্যাড করা হয়েছে
 import toast from "react-hot-toast";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [image, setImage] = useState(""); // নতুন স্টেট ইমেজ লিঙ্কের জন্য
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleRegister = async (e) => {
     if (e) e.preventDefault();
     
-    if (!name || !email || !password) {
-      alert("সবগুলো ঘর পূরণ করুন!");
+    if (!name || !email || !password || !image) {
+      toast.error("সবগুলো ঘর পূরণ করুন, ইমেজ লিঙ্কসহ!");
       return;
     }
 
@@ -30,17 +31,18 @@ export default function RegisterPage() {
         email,
         password,
         name,
+        image, 
         callbackURL: "/", 
       });
 
       if (error) {
-       toast.error("Registration failed: " + error.message);
+        toast.error("Registration failed: " + error.message);
       } else {
         toast.success("Account created successfully! Please login.");
         router.push("/login");
       }
     } catch (err) {
-      alert("try again");
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -51,12 +53,12 @@ export default function RegisterPage() {
       <Card className="max-w-md w-full p-8 shadow-2xl border border-gray-100 bg-white">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-800">Create Account</h2>
-          <p className="text-gray-500 mt-2">register to create new account</p>
+          <p className="text-gray-500 mt-2">Register to create new account</p>
         </div>
 
-        <form onSubmit={handleRegister} className="space-y-6">
+        <form onSubmit={handleRegister} className="space-y-5">
           {/* Full Name Field */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="text-sm font-semibold text-gray-700 ml-1">Full Name</label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -68,13 +70,31 @@ export default function RegisterPage() {
                 placeholder="Rafiul Goni"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl outline-none focus:border-primary transition-all"
+              />
+            </div>
+          </div>
+
+          {/* Image URL Field - নতুন ফিল্ড */}
+          <div className="space-y-1">
+            <label className="text-sm font-semibold text-gray-700 ml-1">Profile Image URL</label>
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FaImage className="text-gray-400 group-focus-within:text-primary transition-colors" />
+              </div>
+              <input
+                required
+                type="url"
+                placeholder="https://example.com/photo.jpg"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl outline-none focus:border-primary transition-all"
               />
             </div>
           </div>
 
           {/* Email Field */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="text-sm font-semibold text-gray-700 ml-1">Email Address</label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -86,13 +106,13 @@ export default function RegisterPage() {
                 placeholder="example@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl outline-none focus:border-primary transition-all"
               />
             </div>
           </div>
 
           {/* Password Field */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="text-sm font-semibold text-gray-700 ml-1">Password</label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -104,7 +124,7 @@ export default function RegisterPage() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-xl outline-none focus:border-primary transition-all"
               />
             </div>
           </div>
@@ -120,7 +140,7 @@ export default function RegisterPage() {
         </form>
 
         <div className="text-center mt-6">
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm">
             Already have an account?{" "}
             <Link href="/login" className="text-primary font-bold hover:underline">
               Login here

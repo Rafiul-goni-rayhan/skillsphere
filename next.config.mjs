@@ -8,14 +8,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    dangerouslyAllowSVG: true, 
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'placehold.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co.com', 
+      },
     ],
-      domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com"],
   },
 };
 

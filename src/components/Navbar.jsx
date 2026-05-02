@@ -1,8 +1,9 @@
 "use client";
+
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
-import { Spinner, Button } from "@heroui/react";
+import { Spinner, Button, Avatar } from "@heroui/react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
@@ -21,19 +22,19 @@ const Navbar = () => {
       toast.error("Logout failed. Please try again.");
     }
   };
+  console.log(session);
 
   return (
     <motion.div
-      initial={{ y: -100 }}
+      initial={{ y: -80 }}
       animate={{ y: 0 }}
-      className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm"
+      className="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-gray-200 shadow-sm"
     >
       <nav className="flex justify-between items-center py-3 px-6 max-w-7xl mx-auto">
+
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <motion.div
-            whileHover={{ rotate: 10 }}
-            className="p-1 bg-blue-600 rounded-xl"
-          >
+          <motion.div whileHover={{ rotate: 10 }} className="p-1 bg-blue-600 rounded-xl">
             <Image
               src="/logo.png"
               alt="Logo"
@@ -42,35 +43,31 @@ const Navbar = () => {
               className="rounded-lg"
             />
           </motion.div>
-          <span className="font-black text-2xl tracking-tight text-gray-900 italic">
+
+          <span className="font-black text-2xl text-gray-900 italic">
             Skill<span className="text-blue-600">Sphere</span>
           </span>
         </Link>
 
+        {/* Nav Links */}
         <ul className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
-          {["Home", "Courses", "My Profile"].map((item) => (
-            <li key={item}>
-              <Link
-                href={
-                  item === "Home"
-                    ? "/"
-                    : item === "Courses"
-                      ? "/courses"
-                      : session
-                        ? "/my-profile"
-                        : "/login"
-                }
-                className="relative group py-2"
-              >
-                <span className="group-hover:text-blue-600 transition-colors">
-                  {item}
+          {[
+            { name: "Home", path: "/" },
+            { name: "Courses", path: "/courses" },
+            { name: "My Profile", path: session ? "/my-profile" : "/login" },
+          ].map((item) => (
+            <li key={item.name}>
+              <Link href={item.path} className="relative group py-2">
+                <span className="group-hover:text-blue-600 transition">
+                  {item.name}
                 </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full" />
               </Link>
             </li>
           ))}
         </ul>
 
+        {/* Right Side */}
         <div className="flex items-center gap-4">
           {isPending ? (
             <Spinner size="sm" color="primary" />
@@ -78,35 +75,47 @@ const Navbar = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex items-center gap-4"
+              className="flex items-center gap-3"
             >
-              <span className="hidden sm:block text-sm font-bold text-gray-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
-                Hi, {session.user.name.split(" ")[0]}
+             
+              <img
+                src={session.user.image}
+                name={session.user.name}
+                size="sm"
+                className="cursor-pointer border rounded-full"
+                height={40}
+                width={40}
+                
+              />
+
+            
+              <span className="hidden sm:block text-sm font-semibold text-gray-700">
+                {session.user.name}
               </span>
+
+            
               <Button
                 onClick={handleLogout}
                 size="sm"
                 color="danger"
                 variant="flat"
-                className="font-bold rounded-lg transition-transform active:scale-90"
+                className="rounded-lg font-semibold"
               >
                 Logout
               </Button>
             </motion.div>
           ) : (
             <div className="flex items-center gap-2">
-              {/* Login Button */}
               <Link href="/login">
-                <Button variant="light" className="font-bold text-blue-600">
+                <Button variant="light" className="font-semibold text-blue-600">
                   Login
                 </Button>
               </Link>
 
-              {/* Register Button */}
               <Link href="/register">
                 <Button
                   color="primary"
-                  className="font-bold shadow-lg shadow-blue-200 rounded-lg transition-transform hover:-translate-y-0.5"
+                  className="font-semibold rounded-lg shadow-md hover:scale-[1.03] transition"
                 >
                   Register
                 </Button>
