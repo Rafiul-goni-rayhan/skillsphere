@@ -40,7 +40,6 @@ export default function EditProfileModal({ user }) {
 
   return (
     <>
-      {/* Open Button */}
       <Button
         onPress={() => setIsOpen(true)}
         color="primary"
@@ -49,17 +48,14 @@ export default function EditProfileModal({ user }) {
         Edit Profile
       </Button>
 
-      {/* Modal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md">
 
-          {/* Animated Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             className="bg-white/90 backdrop-blur-xl p-8 rounded-3xl w-full max-w-md shadow-2xl border border-gray-200"
           >
-            {/* Header */}
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-800">
                 Edit Profile ✨
@@ -72,7 +68,6 @@ export default function EditProfileModal({ user }) {
            
 
 
-            {/* Form */}
             <div className="space-y-4">
 
               <Input
@@ -96,7 +91,6 @@ export default function EditProfileModal({ user }) {
               />
             </div>
 
-            {/* Actions */}
             <div className="flex justify-end gap-3 mt-6">
               <Button
                 variant="flat"
