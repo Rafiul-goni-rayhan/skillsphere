@@ -18,9 +18,9 @@ export default function RegisterPage() {
 
   const handleRegister = async (e) => {
     if (e) e.preventDefault();
-    
+
     if (!name || !email || !password || !image) {
-      toast.error("সবগুলো ঘর পূরণ করুন, ইমেজ লিঙ্কসহ!");
+      toast.error("complete all field");
       return;
     }
 
@@ -31,14 +31,14 @@ export default function RegisterPage() {
         email,
         password,
         name,
-        image, 
-        callbackURL: "/", 
+        image,
+        callbackURL: "/",
       });
 
       if (error) {
         toast.error("Registration failed: " + error.message);
       } else {
-        toast.success("Account created successfully! Please login.");
+        toast.success("Account created successfully!");
         router.push("/login");
       }
     } catch (err) {
@@ -57,9 +57,10 @@ export default function RegisterPage() {
         </div>
 
         <form onSubmit={handleRegister} className="space-y-5">
-        
           <div className="space-y-1">
-            <label className="text-sm font-semibold text-gray-700 ml-1">Full Name</label>
+            <label className="text-sm font-semibold text-gray-700 ml-1">
+              Full Name
+            </label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FaUser className="text-gray-400 group-focus-within:text-primary transition-colors" />
@@ -76,7 +77,9 @@ export default function RegisterPage() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-sm font-semibold text-gray-700 ml-1">Profile Image URL</label>
+            <label className="text-sm font-semibold text-gray-700 ml-1">
+              Profile Image URL
+            </label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FaImage className="text-gray-400 group-focus-within:text-primary transition-colors" />
@@ -94,7 +97,9 @@ export default function RegisterPage() {
 
           {/* Email Field */}
           <div className="space-y-1">
-            <label className="text-sm font-semibold text-gray-700 ml-1">Email Address</label>
+            <label className="text-sm font-semibold text-gray-700 ml-1">
+              Email Address
+            </label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FaEnvelope className="text-gray-400 group-focus-within:text-primary transition-colors" />
@@ -112,7 +117,9 @@ export default function RegisterPage() {
 
           {/* Password Field */}
           <div className="space-y-1">
-            <label className="text-sm font-semibold text-gray-700 ml-1">Password</label>
+            <label className="text-sm font-semibold text-gray-700 ml-1">
+              Password
+            </label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FaLock className="text-gray-400 group-focus-within:text-primary transition-colors" />
@@ -130,10 +137,22 @@ export default function RegisterPage() {
 
           <Button
             type="submit"
-            color="primary"
-            className="w-full font-bold text-lg h-12 mt-4 shadow-lg shadow-primary/20"
             isLoading={loading}
+            className="
+            w-full h-12 mt-4 
+            font-bold text-lg text-white
+            rounded-2xl
+            bg-gradient-to-r from-blue-600 to-purple-600
+            shadow-lg shadow-blue-200
+            hover:shadow-xl hover:shadow-blue-300
+            hover:-translate-y-0.5
+            transition-all duration-300
+            relative overflow-hidden
+            "
           >
+            {/* Shine effect */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 hover:opacity-100 animate-[shine_1.5s_infinite]" />
+
             {loading ? "Creating Account..." : "Register"}
           </Button>
         </form>
@@ -141,7 +160,10 @@ export default function RegisterPage() {
         <div className="text-center mt-6">
           <p className="text-gray-600 text-sm">
             Already have an account?{" "}
-            <Link href="/login" className="text-primary font-bold hover:underline">
+            <Link
+              href="/login"
+              className="text-primary font-bold hover:underline"
+            >
               Login here
             </Link>
           </p>
