@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SkillSphere – Online Learning Platform
 
-## Getting Started
+A modern, responsive e-learning platform where users can explore, search, and enroll in skill-based programs.
 
-First, run the development server:
+### 🌐 Live URL:
+ https://skillsphere-vert.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🚀 Purpose
+The goal of SkillSphere is to provide a seamless learning experience. It allows  browse  courses, manage  profiles, and access premium course details , authenticated environment.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ✨ Key Features
+*   **Authentication:** Secure Email/Password and Google Social Login using **Better-Auth**.
+*   **Course Management:** Browse all courses with a dynamic **Search** functionality.
+*   **Protected Routes:** Course details and curriculum are restricted to logged-in users.
+*   **User Profile:** Dedicated profile page to view and **Update** name and profile picture.
+*   **Responsive UI:** Optimized for mobile, tablet, and desktop using **Tailwind CSS**.
+*   **Interactive Design:** Smooth animations and sliders for a modern feel.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 🛠 Tech Stack & NPM Packages
+*   **Framework:** Next.js (App Router)
+*   **Styling:** Tailwind CSS & HeroUI 
+*   **Authentication:** Better-Auth
+*   **Notifications:** React Hot Toast
+*   **Animations/Sliders:**  Framer Motion
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 💻 Installation
+1.  **Clone the repo:** `git clone https://github.com/Rafiul-goni-rayhan/skillsphere`
+2.  **Install dependencies:** `npm install`
+3.  **Setup Environment Variables:** Create a `.env.local` for Better-Auth and Google credentials.
+4.  **Run the app:** `npm run dev`
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+**Developed by Rafiul Goni Rayhan**
