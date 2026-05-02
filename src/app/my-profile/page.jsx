@@ -51,7 +51,7 @@ export default async function MyProfilePage() {
         </div>
       </Card>
 
-      {/* status card */}
+   
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
         <Card className="p-6 text-center border border-gray-50 shadow-sm rounded-2xl">
           <p className="text-[10px] text-gray-400 font-black uppercase mb-1 tracking-tighter">Account Status</p>

@@ -57,7 +57,7 @@ export default function RegisterPage() {
         </div>
 
         <form onSubmit={handleRegister} className="space-y-5">
-          {/* Full Name Field */}
+        
           <div className="space-y-1">
             <label className="text-sm font-semibold text-gray-700 ml-1">Full Name</label>
             <div className="relative group">
@@ -75,7 +75,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Image URL Field - নতুন ফিল্ড */}
           <div className="space-y-1">
             <label className="text-sm font-semibold text-gray-700 ml-1">Profile Image URL</label>
             <div className="relative group">
