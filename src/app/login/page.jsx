@@ -5,6 +5,7 @@ import { Card, Input, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ export default function LoginPage() {
     });
 
     if (error) {
-      alert(error.message || "Login failed!");
+      toast.error( "Login failed!");
     } else {
       router.push("/");
       router.refresh();
