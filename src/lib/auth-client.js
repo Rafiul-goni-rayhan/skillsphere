@@ -8,8 +8,8 @@
 import { createAuthClient } from "better-auth/react"
 
 export const authClient = createAuthClient({
-    baseURL: "http://localhost:3000"
-//  baseURL: "https://skillsphere-vert.vercel.app"
+//     baseURL: "http://localhost:3000"
+ baseURL: "https://skillsphere-vert.vercel.app"
 })
 
 export const { signIn, signUp, useSession, signOut } = authClient;

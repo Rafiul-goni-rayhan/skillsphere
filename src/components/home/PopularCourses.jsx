@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaStar, FaChalkboardTeacher } from "react-icons/fa";
 import { motion } from "framer-motion";
 import CourseModal from "./CourseModal";
+import Link from "next/link";
 
 export default function PopularCourses() {
   const [courses, setCourses] = useState([]);
@@ -51,8 +52,10 @@ export default function PopularCourses() {
           variant="light"
           className="font-semibold text-blue-600 hover:bg-blue-50 rounded-xl"
         >
-          See All →
-        </Button>
+          
+        
+
+        <Link href="/courses" className="hover:text-blue-600">See All →</Link></Button>
       </div>
 
       {/* Cards */}
