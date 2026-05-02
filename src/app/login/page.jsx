@@ -50,7 +50,7 @@ export default function LoginPage() {
             size="lg"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border-2 rounded p-2"
+            className="border-2 rounded-2xl p-2"
           />
 
           <Input
@@ -62,7 +62,7 @@ export default function LoginPage() {
             size="lg"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border-2 rounded p-2"
+            className="border-2 rounded-2xl p-2"
           />
 
           <Button
