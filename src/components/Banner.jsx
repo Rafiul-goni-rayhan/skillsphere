@@ -5,7 +5,7 @@ const Banner = () => {
         <div>
             <h1>Banner</h1>
         </div>
-    );
+    );  
 };
 
-export default Banner;<h1>Banner</h1>
+export default Banner;  

@@ -7,7 +7,7 @@
     "rating": 4.8,
     "level": "Beginner",
     "description": "Learn full-stack web development from scratch using HTML, CSS, React, and Node.js.",
-    "image": "https://placehold.co/600x400/2563eb/ffffff?text=Web+Development",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
     "category": "Development"
   },
   {
@@ -18,7 +18,7 @@
     "rating": 4.9,
     "level": "Intermediate",
     "description": "Master Figma and learn how to design intuitive user interfaces and user experiences.",
-    "image": "https://placehold.co/600x400/ec4899/ffffff?text=UI/UX+Design",
+    "image": "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c",
     "category": "Design"
   },
   {
@@ -29,7 +29,7 @@
     "rating": 4.7,
     "level": "Beginner",
     "description": "Grow your business online using SEO, social media marketing, and email campaigns.",
-    "image": "https://placehold.co/600x400/10b981/ffffff?text=Digital+Marketing",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
     "category": "Marketing"
   },
   {
@@ -40,7 +40,7 @@
     "rating": 5.0,
     "level": "Advanced",
     "description": "Build fast, SEO-friendly, and highly scalable full-stack applications with Next.js App Router.",
-    "image": "https://placehold.co/600x400/8b5cf6/ffffff?text=Next.js+Pro",
+    "image": "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3",
     "category": "Development"
   },
   {
@@ -51,7 +51,7 @@
     "rating": 4.6,
     "level": "Beginner",
     "description": "Learn vector illustration, logo design, and branding using Adobe Illustrator.",
-    "image": "https://placehold.co/600x400/f59e0b/ffffff?text=Graphic+Design",
+    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
     "category": "Design"
   },
   {
@@ -62,7 +62,7 @@
     "rating": 4.8,
     "level": "Intermediate",
     "description": "Analyze data, create stunning visualizations, and learn machine learning basics with Python.",
-    "image": "https://placehold.co/600x400/3b82f6/ffffff?text=Data+Science",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
     "category": "Data Science"
   }
 ]
