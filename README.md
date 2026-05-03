@@ -36,6 +36,3 @@ The goal of SkillSphere is to provide a seamless learning experience. It allows 
 2.  **Install dependencies:** `npm install`
 3.  **Setup Environment Variables:** Create a `.env.local` for Better-Auth and Google credentials.
 4.  **Run the app:** `npm run dev`
-
----
-**Developed by Rafiul Goni Rayhan**
